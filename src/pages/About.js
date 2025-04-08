@@ -7,7 +7,7 @@ function About() {
         <div className="container">
           <h2>About</h2>
           <div className="about-content">
-            <img src="/images/profilepicture.jpg" alt="Asem Abdelsalam" className="profile-img" loading="lazy" />
+          <img src={`${process.env.PUBLIC_URL}/images/profilepicture.jpg`} alt="Asem Abdelsalam" className="profile-img" loading="lazy" />
             <div className="about-text">
               <h3>Asem Abdelsalam</h3>
               <p className="about-subtitle">Architect | Computational Designer</p>
@@ -74,7 +74,7 @@ function About() {
       <section id="skills" className="section skills-section">
         <div className="container">
           <h2>Skills</h2>
-          <ul className="skills-grid" role="list">
+          <ul className="skills-grid">
             <li>Rhino3D</li>
             <li>Grasshopper</li>
             <li>Revit</li>
@@ -127,7 +127,7 @@ function About() {
       <section id="languages" className="section languages-section">
         <div className="container">
           <h2>Languages</h2>
-          <ul className="languages-grid" role="list">
+          <ul className="languages-grid">
             <li>English - Fluent</li>
             <li>Arabic - Native</li>
           </ul>

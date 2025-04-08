@@ -5,10 +5,10 @@ function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageContainerRef = useRef(null);
   const images = [
-    { src: '/images/hero/automation_project.jpg', alt: 'Automation Project', title: 'Grasshopper Scripting for Automation', category: 'automation' },
-    { src: '/images/hero/fabrication_project.png', alt: 'Fabrication Project', title: 'Grasshopper Scripting for Digital Fabrication', category: 'fabrication' },
-    { src: '/images/hero/parametric-project.jpg', alt: 'Parametric Modeling Project', title: 'Architectural Parametric Modeling', category: 'parametric-modeling' },
-    { src: '/images/hero/furniture_project.jpg', alt: 'Furniture Design Project', title: 'Parametric Furniture Design', category: 'furniture-design' },
+    { src: `${process.env.PUBLIC_URL}/images/hero/automation_project.jpg`, alt: 'Automation Project', title: 'Grasshopper Scripting for Automation', category: 'automation' },
+    { src: `${process.env.PUBLIC_URL}/images/hero/fabrication_project.png`, alt: 'Fabrication Project', title: 'Grasshopper Scripting for Digital Fabrication', category: 'fabrication' },
+    { src: `${process.env.PUBLIC_URL}/images/hero/parametric-project.jpg`, alt: 'Parametric Modeling Project', title: 'Architectural Parametric Modeling', category: 'parametric-modeling' },
+    { src: `${process.env.PUBLIC_URL}/images/hero/furniture_project.jpg`, alt: 'Furniture Design Project', title: 'Parametric Furniture Design', category: 'furniture-design' },
   ];
   const intervalTime = 7000;
 
@@ -30,7 +30,7 @@ function Hero() {
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex]);
+  }, [currentIndex, nextImage, prevImage]);
 
   const handleSwipe = (startX, endX) => {
     const deltaX = endX - startX;
