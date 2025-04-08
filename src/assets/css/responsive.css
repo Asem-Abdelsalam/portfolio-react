@@ -1,0 +1,125 @@
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header .container {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        margin-left: 0;
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        margin-right: 0;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000;
+        padding: 1rem 0;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 0.5rem 0;
+    }
+
+    .nav-list a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .search-bar .container {
+        padding: 0 1rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin: 0 auto;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .video-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .video-title {
+        font-size: 1rem;
+        left: 20px;
+        bottom: 3rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        height: calc(100vh - 3.5rem); /* Slightly more padding for mobile header */
+        max-height: 100vh; /* Hard cap to prevent overflow */
+    }
+
+    .image-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-height: 100%;
+        filter: brightness(1);
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.5s ease;
+        transform: scale(1);
+    }
+
+    .image-title {
+        font-size: 1rem; /* Smaller title on mobile */
+        bottom: 3rem; /* Adjust to fit above progress bars */
+        left: 20px; /* Slightly more padding from edge */
+    }
+
+    .image-controls {
+        bottom: 0.5rem; /* Closer to bottom on mobile */
+    }
+
+    .progress-bar {
+        width: 40px; /* Smaller bars for mobile */
+    }
+}

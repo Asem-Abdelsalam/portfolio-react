@@ -1,0 +1,831 @@
+/******************************************************************************
+ * TABLE OF CONTENTS
+ * ------------------
+ * 1. Shared Styles
+ * 2. Index Page (index.html)
+ * 3. About Page (about.html) 
+ * 4. Projects Page (projects.html)
+ * 5. Project Detail Page (project-detail.html)
+ * 6. Contact Page (contact.html)
+ ******************************************************************************/
+
+/* #region 1. SHARED STYLES */
+/******************************************************************************
+ * 1. SHARED STYLES 
+ ******************************************************************************/
+/* Common Section & Heading */
+.section {
+    padding: 8rem 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #1a3c34;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+/* #endregion */
+
+/* #region 2. INDEX PAGE STYLES */
+/******************************************************************************
+ * 2. INDEX PAGE STYLES (index.html)
+ ******************************************************************************/
+/* Hero Section & Image Carousel */
+.hero {
+    position: relative;
+    height: calc(100vh);
+    background: #000;
+    overflow: hidden;
+}
+
+/* Hero Elements */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    transform: scale(1);
+}
+
+.hero-image.active {
+    opacity: 1;
+    animation: zoomIn 7s linear forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.image-title {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 50px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    background: rgba(126, 126, 126, 0);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.image-title:hover {
+    background: rgba(71, 71, 71, 0.2);
+    cursor: pointer;
+}
+
+.image-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+
+
+/* Progress Bars */
+.progress-bars {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    background: #fff;
+    transition: width 0.2s ease-in-out; /* Smooth transition for manual resets */
+}
+
+.progress-bar.active .progress-fill {
+    width: 100%;
+    animation: fillBar 7s ease-in-out forwards; /* Changed to ease-in-out */
+}
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* Adjust .image-controls positioning if needed */
+.image-controls {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+/* #endregion */
+
+/* #region 3. ABOUT PAGE STYLES */
+/******************************************************************************
+ * 3. ABOUT PAGE STYLES (about.html)
+ ******************************************************************************/
+/* Profile Section */
+.about-section {
+    background: #fff;
+    padding: 8rem 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.03);
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a3c34;
+    margin-bottom: 0.5rem;
+}
+
+.about-subtitle {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Work Experience */
+.experience-section {
+    background: #f5f5f5;
+}
+
+.experience-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.experience-list {
+    list-style: none;
+}
+
+.experience-list li {
+    margin-bottom: 2rem;
+}
+
+.experience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.experience-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.experience-list h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a3c34;
+    margin-bottom: 0.5rem;
+}
+
+.experience-date {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: 0.75rem;
+}
+
+.experience-list p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Technical Skills */
+.skills-section {
+    background: #fff;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skills-grid li {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-grid li:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Academic Background */
+.education-section {
+    background: #f5f5f5;
+}
+
+.education-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.education-list {
+    list-style: none;
+}
+
+.education-list li {
+    margin-bottom: 2rem;
+}
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.education-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.education-list h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a3c34;
+    margin-bottom: 0.5rem;
+}
+
+.education-date {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: 0.75rem;
+}
+
+.education-list p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Language Proficiency */
+.languages-section {
+    background: #fff;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.languages-grid li {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.languages-grid li:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* #endregion */
+
+/* #region 4. PROJECTS PAGE STYLES */
+/******************************************************************************
+ * 4. PROJECTS PAGE STYLES (projects.html)
+ ******************************************************************************/
+/* Portfolio Grid & Filters */
+.project-section {
+    background: #fff;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-item {
+    background: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.project-text {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.project-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a3c34;
+    margin-bottom: 0.75rem;
+}
+
+.project-text p {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-text a {
+    color: #1a3c34;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.project-text a:hover {
+    color: #2e5e56;
+}
+
+/* Project Filter Tabs */
+.project-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.tab-button.active,
+.tab-button:hover {
+    background: #1a3c34;
+    color: #fff;
+}
+/* #endregion */
+
+/* #region 5. PROJECT DETAIL PAGE STYLES */
+/******************************************************************************
+ * 5. PROJECT DETAIL PAGE STYLES (project-detail.html)
+ ******************************************************************************/
+/* Project Overview */
+.project-detail-section {
+    background: #fff;
+    padding: 8rem 0;
+}
+
+.project-detail-img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 2rem 0;
+    object-fit: cover;
+}
+
+#project-description {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.back-to-projects {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #1a3c34;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.back-to-projects:hover {
+    background: #2e5e56;
+}
+
+/* Before/After Comparison */
+.image-slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #f5f5f5;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.slider-image.input {
+    z-index: 1;
+    clip-path: inset(0 50% 0 0);
+}
+
+.slider-image.output {
+    z-index: 0;
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #fff;
+    cursor: ew-resize;
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.slider-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* 3D Model Display */
+.model-viewers {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    gap: 2rem;
+}
+
+.viewer-container {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    transition: height 0.3s ease;
+}
+
+.viewer-container h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #1a3c34;
+}
+
+.viewer {
+    width: 100%;
+    height: 100%;
+    background: #707070;
+    border: 1px solid #ddd;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.viewer-modal {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #707070;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.viewer-modal canvas {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* Viewer Controls */
+.extend-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.extend-btn:hover {
+    opacity: 0.7;
+}
+
+.extend-btn svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+    fill: none;
+}
+
+/* Modal Views */
+.viewer-modal {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #707070;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.viewer-modal canvas {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+.viewer-modal .extend-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Backdrop */
+.viewer-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+/* #endregion */
+
+/* #region 6. CONTACT PAGE STYLES */
+/******************************************************************************
+ * 6. CONTACT PAGE STYLES (contact.html)
+ ******************************************************************************/
+/* Contact Form & Elements */
+.contact-section {
+    background: #fff;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 8rem 0;
+}
+.contact-form {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.contact-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.form-group {
+    position: relative;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-bottom-color: #1a3c34;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+}
+
+.form-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #1a3c34;
+    transition: width 0.3s ease;
+}
+
+.contact-form input:focus ~ .form-line,
+.contact-form textarea:focus ~ .form-line {
+    width: 100%;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+.send-button {
+    align-self: center;
+    padding: 1rem 3rem;
+    background: #1a3c34;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.send-button:hover {
+    background: #2e5e56;
+}
+
+/* Form Feedback */
+.form-feedback {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #1a3c34;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-feedback.show {
+    opacity: 1;
+}
+/* #endregion */
+
+.configurator-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+.features-grid, .users-grid, .monetization-list, .roadmap-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.feature-item h4 {
+    margin-bottom: 0.5rem;
+}
+.mockup-img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.mockup-caption {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+}
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.cta-button:hover {
+    background: #0056b3;
+}

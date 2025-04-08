@@ -1,0 +1,31 @@
+portfolio-react/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico (rename your logo.png to this)
+│   └── images/ (copy your images folder here)
+│   └── models/ (copy your .glb models here)
+├── src/
+│   ├── assets/
+│   │   └── css/
+│   │       ├── base.css
+│   │       ├── layout.css
+│   │       ├── sections.css
+│   │       ├── responsive.css
+│   │       └── style.css
+│   ├── components/
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   ├── Hero.js
+│   │   ├── ProjectGrid.js
+│   │   ├── SearchBar.js
+│   │   └── ModelViewer.js
+│   ├── pages/
+│   │   ├── Home.js
+│   │   ├── About.js
+│   │   ├── Projects.js
+│   │   ├── ProjectDetail.js
+│   │   └── Contact.js
+│   ├── App.js
+│   ├── index.js
+│   └── data.js (for project data)
+├── package.json
