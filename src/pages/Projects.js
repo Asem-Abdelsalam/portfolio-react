@@ -3,6 +3,12 @@ import { useLocation } from 'react-router-dom';
 import ProjectGrid from '../components/ProjectGrid';
 
 function Projects() {
+
+  // Set the document title when the component mounts
+  useEffect(() => {
+    document.title = 'Projects | Asem Abdelsalam';
+  }, []); // Empty dependency array: runs once on mount
+  
   const [activeTab, setActiveTab] = useState('automation');
   const location = useLocation();
 

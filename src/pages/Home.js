@@ -1,8 +1,13 @@
-import React from 'react';
 import Hero from '../components/Hero';
 import ProjectGrid from '../components/ProjectGrid';
+import React, { useEffect } from 'react';
 
 function Home() {
+  // Set the document title when the component mounts
+  useEffect(() => {
+    document.title = 'Home | Asem Abdelsalam';
+  }, []); // Empty dependency array: runs once on mount
+  
   return (
     <main>
       <Hero />

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function About() {
+  useEffect(() => {
+    document.title = 'About | Asem Abdelsalam';
+  }, []);
+
+
   return (
     <main>
       <section id="about" className="section about-section">
@@ -70,7 +75,28 @@ function About() {
           </div>
         </div>
       </section>
-
+      <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-grid" role="list">
+                <li>Rhino3D</li>
+                <li>Grasshopper</li>
+                <li>Revit</li>
+                <li>Python</li>
+                <li>C#</li>
+                <li>JavaScript</li>
+                <li>AutoCAD</li>
+                <li>Blender</li>
+                <li>Microsoft Office</li>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>InDesign</li>
+                <li>Lumion</li>
+                <li>Twinmotion</li>
+                <li>D5</li>
+            </ul>
+        </div>
+      </section>
       <section id="education" className="section education-section">
         <div className="container">
           <h2>Education</h2>
@@ -100,7 +126,7 @@ function About() {
           </div>
         </div>
       </section>
-      {/* Other sections unchanged */}
+
     </main>
   );
 }

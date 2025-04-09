@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 function Contact() {
+  useEffect(() => {
+      document.title = 'Contact | Asem Abdelsalam';
+    }, []);
+
   const [feedback, setFeedback] = useState('');
 
   const handleSubmit = (e) => {

@@ -3,6 +3,11 @@ import Header from '../components/Header';
 import ThreeViewer from '../components/ThreeViewer';
 
 function Configurator() {
+  // Set the document title when the component mounts
+  useEffect(() => {
+    document.title = '3D Configurator | Asem Abdelsalam';
+  }, []); // Empty dependency array: runs once on mount
+  
   const [modelFiles, setModelFiles] = useState([]);
   const [isGradient, setIsGradient] = useState(false);
   const [color1, setColor1] = useState('#e0e0e0');

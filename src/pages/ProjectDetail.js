@@ -4,6 +4,11 @@ import { projects } from '../data';
 import ModelViewer from '../components/ModelViewer';
 
 function ProjectDetail() {
+  // Set the document title when the component mounts
+  useEffect(() => {
+    document.title = 'Project Detail | Asem Abdelsalam';
+  }, []); // Empty dependency array: runs once on mount
+  
   const { id } = useParams();
   const [sliderPosition, setSliderPosition] = useState(50);
   const sliderContainerRef = useRef(null);
