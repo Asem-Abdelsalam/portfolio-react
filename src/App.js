@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
+import Configurator from './pages/Configurator';
 import './assets/css/style.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/project-detail/:id" element={<ProjectDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/configurator" element={<Configurator />} />
       </Routes>
       <Footer />
     </div>

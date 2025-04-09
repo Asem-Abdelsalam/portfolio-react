@@ -1,0 +1,415 @@
+/* Same content as your App.css, with minor adjustments */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .configurator-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 6rem 0 2rem 0; /* Adjusted padding, no left/right */
+  }
+  .configurator-container {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #2d3748;
+    width: 100%;
+    max-width: calc(100vw - 300px); /* 250px left + 250px right */
+  
+    margin: 0 auto; /* Center within page */
+  }
+  
+  
+  .configurator-header {
+    margin-bottom: 30px;
+  }
+  
+  .configurator-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    letter-spacing: -0.025em;
+    align-items: center; /* Align title and note vertically */
+    gap: 0.5rem; /* Space between title and note */
+  }
+  .development-note {
+    font-size: 1rem; /* Smaller than h1 */
+    font-weight: 400; /* Lighter weight */
+    color: #718096; /* Muted color, matches <p> */
+    font-style: italic; /* Optional: distinguish it further */
+  }
+  .configurator-header p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #718096;
+  }
+  
+
+  .configurator-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%; /* Fill the configurator-container */
+    flex-wrap: nowrap; /* Keep in one row */
+  }
+
+  .three-viewer-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex: 2 0 70%;
+    min-width: 400px;
+    height: 90vh; /* Set container height */
+  }
+  
+  /* More specific selector for canvas */
+  .three-viewer-container > canvas[data-engine] {
+    width: 100% !important;
+    height: 90vh !important;
+    max-width: 100%;
+    max-height: calc(100vh - 6rem - 4rem);
+  }
+/* ============================================================
+ * Controls Section
+ * ============================================================ */
+/* Controls */
+/* Controls */
+.controls {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1 0 20%;
+    min-width: 250px;
+    max-height: 75vh; /* Match Canvas height */
+    overflow-y: auto;
+    border: 1px solid #edf2f7;
+  }
+  
+  
+  .controls label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  .controls input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    background: #f7fafc;
+    transition: border-color 0.2s ease;
+  }
+  
+  .controls input[type="file"]:hover {
+    border-color: #cbd5e0;
+  }
+  
+  .controls input[type="color"] {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: none;
+  }
+  
+  /* ============================================================
+   * Model List Styling
+   * ============================================================ */
+  .model-list {
+    background: #f7fafc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+  
+  .model-list-title {
+    margin: 0 0 12px 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2d3748;
+    letter-spacing: -0.015em;
+  }
+  
+  .model-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 240px;
+    overflow-y: auto;
+  }
+  
+  .model-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .model-item:hover {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  }
+  
+  .model-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2d3748;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .model-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  /* ============================================================
+   * Buttons Styling
+   * ============================================================ */
+  .visibility-button {
+    background: #718096;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    width: 32px; /* Slightly larger for SVGs */
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+    padding: 0; /* Ensure no extra padding affects SVG */
+  }
+  
+  .visibility-button:hover {
+    background: #5a677d;
+    transform: scale(1.05);
+  }
+  
+  .remove-button {
+    background: #e53e3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    width: 32px; /* Slightly larger for SVGs */
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+    padding: 0;
+  }
+  
+  .remove-button:hover {
+    background: #c53030;
+    transform: scale(1.05);
+  }
+  
+  .no-models {
+    color: #a0aec0;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 12px 0 0 0;
+  }
+  
+  /* ============================================================
+   * Gradient Controls
+   * ============================================================ */
+  .gradient-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3182ce;
+  }
+  
+  .gradient-controls label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* ============================================================
+   * Three Viewer Container
+   * ============================================================ */
+  .three-viewer-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+  
+  /* ============================================================
+   * Model Hierarchy Styling
+   * ============================================================ */
+/* Adjust Model Hierarchy */
+/* Model Hierarchy */
+.model-hierarchy {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    flex: 1 0 30%;
+    min-width: 250px;
+    max-width: 400px;
+    max-height: 75vh; /* Match Canvas height */
+    overflow-y: auto;
+    border: 1px solid #edf2f7;
+  }
+  
+  .model-hierarchy h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2d3748;
+    letter-spacing: -0.015em;
+  }
+  
+  .model-hierarchy ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .model-hierarchy .hierarchy-list > li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .model-hierarchy .hierarchy-list > li:last-child {
+    border-bottom: none;
+  }
+  
+  .model-hierarchy .hierarchy-model strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a202c;
+  }
+  
+  .model-hierarchy .hierarchy-tree {
+    margin-top: 8px;
+  }
+  
+  .hierarchy-item {
+    padding: 6px 0;
+  }
+  
+  .hierarchy-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+  
+  .hierarchy-node:hover {
+    background: #f1f5f9;
+  }
+  
+  .hierarchy-node span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2d3748;
+  }
+  
+  .node-type {
+    color: #718096;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  
+  .hierarchy-children {
+    margin-top: 4px;
+  }
+  
+  .toggle-button {
+    background: #e2e8f0;
+    border: none;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: #4a5568;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  
+  .toggle-button:disabled {
+    background: #edf2f7;
+    color: #a0aec0;
+    cursor: default;
+  }
+  
+  .toggle-button:hover:not(:disabled) {
+    background: #cbd5e0;
+    transform: scale(1.05);
+  }
+  
+  .model-hierarchy p {
+    color: #a0aec0;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 12px 0 0 0;
+  }
+
+/* Responsive fallback */
+@media (max-width: 1000px) {
+    .configurator-container {
+      max-width: 100%; /* Full width on small screens */
+      margin: 0;
+    }
+    .configurator-main {
+      flex-wrap: wrap; /* Stack on smaller screens */
+    }
+    .controls,
+    .three-viewer-container,
+    .model-hierarchy {
+      flex: 1 0 100%; /* Full-width stacking */
+      min-width: 0;
+    }
+  }
+  
